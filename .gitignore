@@ -1,0 +1,71 @@
+# ===================================================================
+# Munyu - Comprehensive Strict Whitelist Git Ignore Policy
+# (Only Source Code, App Icon, and Executable Binary tracked)
+# ===================================================================
+
+# 1. Ignore everything by default
+*
+
+# 2. Allow subdirectories traversal
+!*/
+
+# 3. Allow Source Code files
+!*.cs
+!*.xaml
+!*.csproj
+!*.manifest
+
+# 4. Allow App Icon & Core configuration
+!app.ico
+!README.md
+!.gitignore
+
+# 5. Allow Pre-built App Binary Executable
+!Munyu.exe
+
+# ===================================================================
+# EXPLICIT IGNORE LIST (Unnecessary / Private / Cache / Temp Files)
+# ===================================================================
+
+# Build Outputs & Intermediate Cache
+[Bb]in/
+[Oo]bj/
+[Pp]ublish/
+PublishSingleFile/
+out/
+*.tmp
+*.cache
+*.baml
+*.g.cs
+
+# IDE & Editor User Settings
+.vs/
+.vscode/
+.idea/
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+*.userprefs
+*.swp
+*~
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# NuGet Packages & Assets
+*.nupkg
+packages/
+project.lock.json
+project.assets.json
+
+# Local Runtime Data, Logs & Internal Talkroom Docs
+munyu_data.json
+talkroom/
+scratch/
+make_icon.ps1
+*.log
+*.bak

@@ -1,0 +1,70 @@
+<UserControl x:Class="Munyu.Controls.BinderGroupControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Margin="4,4,4,4"
+             HorizontalAlignment="Left"
+             VerticalAlignment="Top">
+    
+    <!-- Outer Enclosure with Purple Accent Border -->
+    <Border x:Name="OuterBorder"
+            Background="#171220"
+            BorderBrush="#A855F7"
+            BorderThickness="2"
+            CornerRadius="12"
+            Padding="6,6,6,6">
+        <Grid x:Name="ContainerGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Top-Left Cutout / Notch Header for Binder Icon -->
+            <Border x:Name="HeaderNotch"
+                    Grid.Row="0"
+                    HorizontalAlignment="Left"
+                    Background="#2A1B3D"
+                    BorderBrush="#A855F7"
+                    BorderThickness="1"
+                    CornerRadius="8"
+                    Padding="6,3,8,3"
+                    Margin="0,0,0,6"
+                    Cursor="Hand"
+                    ToolTip="Double-click to collapse"
+                    MouseLeftButtonDown="HeaderNotch_MouseLeftButtonDown">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <!-- Binder Icon -->
+                    <Image x:Name="BinderIconImage"
+                           Source="{Binding IconSource}"
+                           Width="20" Height="20"
+                           Margin="0,0,6,0"
+                           RenderOptions.BitmapScalingMode="HighQuality"/>
+
+                    <TextBlock Text="Binder"
+                               Foreground="#F3E8FF"
+                               FontSize="11"
+                               FontWeight="Bold"
+                               VerticalAlignment="Center"/>
+
+                    <!-- Child Count Badge -->
+                    <Border Background="#A855F7"
+                            CornerRadius="8"
+                            Padding="5,1"
+                            Margin="6,0,0,0"
+                            VerticalAlignment="Center">
+                        <TextBlock Text="{Binding ChildCount}"
+                                   Foreground="#FFFFFF"
+                                   FontSize="10"
+                                   FontWeight="Bold"/>
+                    </Border>
+                </StackPanel>
+            </Border>
+
+            <!-- Children Item Cards inside Purple Enclosure -->
+            <WrapPanel x:Name="ChildrenWrapPanel"
+                       Grid.Row="1"
+                       Orientation="Horizontal"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"/>
+        </Grid>
+    </Border>
+</UserControl>
